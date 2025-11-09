@@ -1,0 +1,8 @@
+User: hi
+Bot: Hello, User! How can I help you today?
+User: hi
+Bot: Hello, User! How can I help you today?
+User: hi
+Bot: Hello, User! How can I help you today?
+User: my head is paining
+Bot: Sorry, I didn't understand that.

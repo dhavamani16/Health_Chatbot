@@ -1,0 +1,11 @@
+body { font-family: Arial, sans-serif; background: #f4f4f9; }
+
+.chat-container { width: 400px; margin: 50px auto; padding: 10px; background: white; border-radius: 5px; box-shadow: 0 0 10px #ccc; }
+#chat-box { height: 300px; overflow-y: auto; border: 1px solid #eee; padding: 10px; margin-bottom: 10px; background: #fafafa; }
+p { margin: 8px 0; padding: 8px 12px; border-radius: 12px; max-width: 80%; }
+p.you { background: #0084ff; color: white; align-self: flex-end; margin-left: auto; }
+p.bot { background: #eee; color: black; align-self: flex-start; margin-right: auto; }
+form { display: flex; }
+input[type="text"] { flex: 1; padding: 8px; border-radius: 20px; border: 1px solid #ddd; }
+button { padding: 8px 16px; border: none; background: #0084ff; color: white; border-radius: 20px; margin-left: 10px; cursor: pointer; }
+button:hover { background: #005ecb; }
