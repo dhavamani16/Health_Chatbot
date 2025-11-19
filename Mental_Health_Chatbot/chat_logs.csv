@@ -1,0 +1,17 @@
+timestamp,session_id,query,response,crisis_flag
+2025-11-17T00:08:50.783873,new01,I am Feeling overwhelmed with exam,"It seems like you're going through a really tough time right now. Please remember that you're not alone, and there are people who care about you and want to help. If you're feeling overwhelmed, consider reaching out to a mental health professional or a trusted person in your life. In case of an emergency, please contact emergency services or a crisis hotline immediately. **India:** 9152987821 (icall), 1800-599-0019 (Vandrevala Foundation)
+**USA:** 988 (National Suicide Prevention Lifeline)
+**UK:** 116 123 (Samaritans)
+
+You matter.",True
+2025-11-18T21:36:43.181449,user470361,i am depressed,"It seems like you're going through a really tough time right now. Please remember that you're not alone, and there are people who care about you and want to help. If you're feeling overwhelmed, consider reaching out to a mental health professional or a trusted person in your life. In case of an emergency, please contact emergency services or a crisis hotline immediately. **India:** 9152987821 (icall), 1800-599-0019 (Vandrevala Foundation)
+**USA:** 988 (National Suicide Prevention Lifeline)
+**UK:** 116 123 (Samaritans)
+
+You matter.",True
+2025-11-18T21:37:07.894652,user470361,kill myself,"It seems like you're going through a really tough time right now. Please remember that you're not alone, and there are people who care about you and want to help. If you're feeling overwhelmed, consider reaching out to a mental health professional or a trusted person in your life. In case of an emergency, please contact emergency services or a crisis hotline immediately. **India:** 9152987821 (icall), 1800-599-0019 (Vandrevala Foundation)
+**USA:** 988 (National Suicide Prevention Lifeline)
+**UK:** 116 123 (Samaritans)
+
+You matter.",True
+2025-11-18T21:37:30.654270,debug_test,"Hello, this is a test","Error contacting OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",False
