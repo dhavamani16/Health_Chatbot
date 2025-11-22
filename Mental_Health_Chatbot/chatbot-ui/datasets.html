@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Dataset Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(180deg, #2d5a5a 0%, #1a3a3a 50%, #0f2728 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d5a5a 0%, #1a4d4d 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2d5a5a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2d5a5a;
+            padding-bottom: 10px;
+        }
+
+        .dataset-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dataset-card {
+            background: #f8f9fd;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .dataset-card:hover {
+            border-color: #2d5a5a;
+            box-shadow: 0 5px 15px rgba(45, 90, 90, 0.2);
+        }
+
+        .dataset-card h3 {
+            color: #2d5a5a;
+            margin-bottom: 10px;
+        }
+
+        .dataset-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #856404;
+            line-height: 1.8;
+        }
+
+        .template {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .template h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .template pre {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #2d5a5a 0%, #1a4d4d 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #1a4d4d 0%, #0f3333 100%);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Chatbot Dataset Manager</h1>
+            <p>Expand your chatbot's knowledge with custom datasets</p>
+        </header>
+
+        <div class="content">
+            <!-- Instructions Section -->
+            <div class="section">
+                <div class="instructions">
+                    <h3>🎯 How to Add Datasets</h3>
+                    <ol>
+                        <li>Create a <code>.txt</code> file with mental health information</li>
+                        <li>Structure content with clear sections (see template below)</li>
+                        <li>Save the file in the <code>data/</code> folder</li>
+                        <li>Restart the chatbot - it automatically loads all datasets</li>
+                        <li>The chatbot will search these files for relevant answers</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Current Datasets -->
+            <div class="section">
+                <h2>✅ Current Datasets</h2>
+                <div class="dataset-list">
+                    <div class="dataset-card">
+                        <h3>📌 Stress Management</h3>
+                        <p>Guide on understanding stress, recognizing signs, and managing stress effectively.</p>
+                        <span class="status">✓ Active</span>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>😔 Depression</h3>
+                        <p>Comprehensive guide on depression symptoms, causes, and treatment options with resources.</p>
+                        <span class="status">✓ Active</span>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>😰 Anxiety</h3>
+                        <p>Information about anxiety disorders, triggers, and proven techniques for management.</p>
+                        <span class="status">✓ Active</span>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>😴 Sleep & Rest</h3>
+                        <p>Sleep hygiene tips, routines, and solutions for common sleep problems.</p>
+                        <span class="status">✓ Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template Section -->
+            <div class="section">
+                <h2>📝 Dataset Template</h2>
+                <p>Follow this format for best results:</p>
+                <div class="template">
+                    <h4>Example: relationship.txt</h4>
+                    <pre>RELATIONSHIP HEALTH GUIDE
+
+1. Understanding Healthy Relationships
+A healthy relationship involves mutual respect, trust, and communication...
+
+2. Signs of Toxic Relationships
+• Constant criticism
+• Lack of trust
+• Isolation from friends/family
+
+3. Communication Tips
+• Listen actively
+• Express feelings using "I" statements
+• Avoid blame language
+
+4. When to Seek Help
+Consider counseling if...</pre>
+                </div>
+            </div>
+
+            <!-- Suggested Datasets -->
+            <div class="section">
+                <h2>💡 Suggested Additional Datasets</h2>
+                <p>Create these files to expand your chatbot's capabilities:</p>
+                <div class="dataset-list">
+                    <div class="dataset-card">
+                        <h3>Self-Esteem</h3>
+                        <p>Building confidence and self-worth</p>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>Relationships</h3>
+                        <p>Tips for healthy relationships and communication</p>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>Work-Life Balance</h3>
+                        <p>Managing career stress and burnout</p>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>Grief & Loss</h3>
+                        <p>Coping with loss and bereavement</p>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>Meditation</h3>
+                        <p>Mindfulness and meditation techniques</p>
+                    </div>
+                    <div class="dataset-card">
+                        <h3>Substance Abuse</h3>
+                        <p>Recovery resources and support information</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Location -->
+            <div class="section">
+                <h2>📁 File Location</h2>
+                <p><strong>Save all dataset files here:</strong></p>
+                <code style="background: #f5f5f5; padding: 10px; border-radius: 5px; display: block; margin: 15px 0;">
+                    C:\Users\kala_\Downloads\Mental_Health_Chatbot\data\
+                </code>
+                <p style="margin-top: 15px; color: #666;">
+                    <strong>Example filenames:</strong> depression.txt, anxiety.txt, sleep.txt, relationships.txt
+                </p>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="section">
+                <h2>🚀 Quick Start</h2>
+                <ol style="margin-left: 20px; line-height: 1.8;">
+                    <li>Go to the <code>data/</code> folder (shown above)</li>
+                    <li>Create a new text file (e.g., <code>my_topic.txt</code>)</li>
+                    <li>Copy the template format above</li>
+                    <li>Fill in your mental health content</li>
+                    <li>Save the file</li>
+                    <li>Restart your chatbot (refresh the page)</li>
+                    <li>Test by asking questions related to your new dataset</li>
+                </ol>
+                <a href="index.html" class="btn">← Back to Chatbot</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>💡 Tip: More datasets = Smarter chatbot responses. Create datasets tailored to your audience!</p>
+        </footer>
+    </div>
+</body>
+</html>

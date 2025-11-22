@@ -1,0 +1,123 @@
+📱 MENTAL HEALTH CHATBOT - QUESTION GUIDE
+═════════════════════════════════════════════════════════════════
+
+📌 Quick Answer to "What Questions to Ask?"
+
+You can ask about these 4 main topics:
+
+1️⃣  STRESS
+   Ask: "I'm feeling stressed"
+   Ask: "How to manage stress?"
+   Ask: "Relaxation techniques"
+   Ask: "I'm overwhelmed"
+   Ask: "Help me relax"
+   
+2️⃣  ANXIETY
+   Ask: "I have anxiety"
+   Ask: "Panic attack help"
+   Ask: "I'm worried"
+   Ask: "Anxiety symptoms"
+   Ask: "How to calm down"
+   
+3️⃣  DEPRESSION
+   Ask: "I'm depressed"
+   Ask: "I feel sad"
+   Ask: "Depression help"
+   Ask: "I'm hopeless"
+   Ask: "What is depression?"
+   
+4️⃣  SLEEP
+   Ask: "I can't sleep"
+   Ask: "Insomnia help"
+   Ask: "Sleep problems"
+   Ask: "I'm tired"
+   Ask: "Sleep tips"
+
+═════════════════════════════════════════════════════════════════
+
+📚 Where to Find More Questions?
+
+File: QUICK_QUESTIONS.txt (1-2 min)
+→ One-line copy & paste questions organized by topic
+
+File: EXAMPLE_QUESTIONS.md (5-10 min)
+→ 60+ detailed questions for all topics + edge cases
+
+File: EXAMPLE_CONVERSATIONS.md (10-15 min)
+→ Full Q&A pairs with expected bot responses
+
+File: QUESTIONS_INDEX.md (reference)
+→ Index of all question resources + how to use
+
+═════════════════════════════════════════════════════════════════
+
+✅ What Happens When You Ask?
+
+User: "I'm feeling stressed"
+   ↓
+System: Searches for keyword "stress"
+   ↓
+Result: [From Stress Management]
+        Content about stress management...
+
+═════════════════════════════════════════════════════════════════
+
+🚀 Get Started Right Now
+
+1. Go to: http://127.0.0.1:8001/index.html
+2. Click "Chat with Us"
+3. Type: "I'm feeling stressed"
+4. See response: [From Stress Management] ...
+5. Try more questions from the files!
+
+═════════════════════════════════════════════════════════════════
+
+📊 Quick Keyword Reference
+
+STRESS dataset keywords:
+stress, relax, meditation, exercise, manage, coping
+
+ANXIETY dataset keywords:
+anxiety, panic, worried, afraid
+
+DEPRESSION dataset keywords:
+depress, depressed, sad, hopeless
+
+SLEEP dataset keywords:
+sleep, insomnia, tired
+
+═════════════════════════════════════════════════════════════════
+
+💡 Pro Tips
+
+✓ Use questions with these keywords for dataset responses
+✓ Check browser console (F12) to see which datasets loaded
+✓ Response should start with [From Dataset Name]
+✓ Generic questions get demo responses
+✓ All 4 datasets load automatically
+
+═════════════════════════════════════════════════════════════════
+
+🎯 Top 5 Questions to Try First
+
+1. "I'm feeling stressed" → Gets Stress Management
+2. "I have anxiety" → Gets Anxiety
+3. "I'm depressed" → Gets Depression  
+4. "I can't sleep" → Gets Sleep
+5. "Hello" → Gets generic response
+
+═════════════════════════════════════════════════════════════════
+
+📞 More Info?
+
+See these files:
+- QUICK_QUESTIONS.txt - Simple one-liners
+- EXAMPLE_QUESTIONS.md - 60+ examples
+- EXAMPLE_CONVERSATIONS.md - Full Q&A with responses
+- QUESTIONS_INDEX.md - Complete index & guide
+
+═════════════════════════════════════════════════════════════════
+
+✨ That's it! Your chatbot is ready to help. 🎉
+
+Pick a question from above and start chatting!

@@ -1,0 +1,122 @@
+# 🎯 QUICK QUESTION REFERENCE
+
+## One-Line: What to Ask Your Chatbot
+
+### Stress Management Dataset
+```
+Ask: "I'm feeling stressed"
+Ask: "How to manage stress?"
+Ask: "Relaxation techniques"
+Ask: "Help me relax"
+Ask: "Meditation help"
+```
+
+### Anxiety Dataset
+```
+Ask: "I have anxiety"
+Ask: "Panic attack help"
+Ask: "I'm worried"
+Ask: "Anxiety symptoms"
+Ask: "How to calm down"
+```
+
+### Depression Dataset
+```
+Ask: "I'm depressed"
+Ask: "I feel sad"
+Ask: "Depression help"
+Ask: "I'm hopeless"
+Ask: "Depression symptoms"
+```
+
+### Sleep Dataset
+```
+Ask: "I can't sleep"
+Ask: "Insomnia help"
+Ask: "Sleep problems"
+Ask: "I'm tired"
+Ask: "Sleep tips"
+```
+
+---
+
+## Copy & Paste Questions
+
+### Stress
+- "I'm feeling very stressed"
+- "How do I manage my stress?"
+- "What are relaxation techniques?"
+- "Help me relax"
+- "I'm under pressure"
+
+### Anxiety
+- "I have anxiety"
+- "Panic attacks are scary"
+- "I'm worried and anxious"
+- "How to handle anxiety?"
+- "Anxiety symptoms"
+
+### Depression
+- "I'm depressed"
+- "I feel sad all the time"
+- "What is depression?"
+- "Depression is making me tired"
+- "I feel hopeless"
+
+### Sleep
+- "I can't sleep"
+- "How to sleep better?"
+- "Insomnia tips"
+- "I'm always tired"
+- "Sleep problems"
+
+---
+
+## Expected Response Format
+
+```
+[From Dataset Name]
+
+Content from the dataset...
+```
+
+Example:
+```
+[From Stress Management]
+
+1. What is Stress?
+Stress is the body's natural reaction to challenges...
+```
+
+---
+
+## Where to Test
+
+### Browser
+- Go to: `http://127.0.0.1:8001/index.html`
+- Click "Chat with Us"
+- Type a question
+- See response
+
+### API
+```powershell
+$body = @{ session_id = "test1"; query = "I'm stressed" } | ConvertTo-Json
+curl http://127.0.0.1:8000/chat -Method POST -H "Content-Type: application/json" -Body $body
+```
+
+---
+
+## ✓ Verify It Works
+
+Browser console (F12 → Console) should show:
+```
+✓ Loaded dataset: stress_management
+✓ Loaded dataset: anxiety
+✓ Loaded dataset: depression
+✓ Loaded dataset: sleep
+Dataset matched for: I'm feeling stressed...
+```
+
+---
+
+**That's it! Ask any question above and your chatbot will respond with relevant dataset content.** 🎉

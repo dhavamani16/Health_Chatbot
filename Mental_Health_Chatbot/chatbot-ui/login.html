@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(180deg, #2d5a5a 0%, #1a3a3a 50%, #0f2728 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px 40px;
+            max-width: 400px;
+            width: 100%;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-header h1 {
+            color: #2d5a5a;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #d0d8e0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: #f8f9fd;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #2d5a5a;
+            background: white;
+            box-shadow: 0 4px 12px rgba(45, 90, 90, 0.2);
+        }
+
+        .form-group input::placeholder {
+            color: #a0a8b0;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #2d5a5a 0%, #1a4d4d 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(45, 90, 90, 0.2);
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(135deg, #1a4d4d 0%, #0f3333 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(45, 90, 90, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .guest-btn {
+            width: 100%;
+            padding: 12px;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #d0d8e0;
+            border-radius: 10px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .guest-btn:hover {
+            background: #e0e0e0;
+            border-color: #2d5a5a;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.85em;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>🧠 Mental Health</h1>
+            <p>Support Chatbot</p>
+        </div>
+
+        <div class="error-message" id="errorMsg"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    placeholder="Enter your name" 
+                    required
+                    minlength="2"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email (Optional)</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Enter your email"
+                />
+            </div>
+
+            <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <button class="guest-btn" onclick="continueAsGuest()">Continue as Guest</button>
+
+        <div class="footer-text">
+            <p>Your privacy is important to us.</p>
+            <p>All conversations are confidential.</p>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (name.length < 2) {
+                showError('Please enter a valid name');
+                return;
+            }
+
+            // Save user info to localStorage
+            const userData = {
+                name: name,
+                email: email || 'anonymous',
+                loginTime: new Date().toLocaleString(),
+                isLoggedIn: true
+            };
+
+            localStorage.setItem('userData', JSON.stringify(userData));
+            
+            // Redirect to chatbot
+            window.location.href = 'index.html';
+        }
+
+        function continueAsGuest() {
+            const userData = {
+                name: 'Guest',
+                email: 'guest',
+                loginTime: new Date().toLocaleString(),
+                isLoggedIn: false
+            };
+
+            localStorage.setItem('userData', JSON.stringify(userData));
+            window.location.href = 'index.html';
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('errorMsg');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            setTimeout(() => {
+                errorEl.style.display = 'none';
+            }, 5000);
+        }
+
+        // If already logged in, go to chatbot
+        window.addEventListener('load', () => {
+            const userData = localStorage.getItem('userData');
+            if (userData) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

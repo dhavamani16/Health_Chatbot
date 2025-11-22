@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Chatbot - Debug</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        h1 { color: #333; margin-top: 0; }
+        .status { 
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover { background: #5568d3; }
+        .controls { margin: 20px 0; }
+        #log { 
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Mental Health Chatbot - Debug Console</h1>
+        
+        <div id="serverStatus" class="status info">Checking server...</div>
+        
+        <div class="controls">
+            <button onclick="testServer()">Test Server Connection</button>
+            <button onclick="testChat()">Test Chat Endpoint</button>
+            <button onclick="openChatbot()">Open Chatbot UI</button>
+            <button onclick="clearLog()">Clear Log</button>
+        </div>
+        
+        <h3>Debug Log:</h3>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#d32f2f' : type === 'success' ? '#388e3c' : '#1976d2';
+            const line = document.createElement('div');
+            line.style.color = color;
+            line.textContent = `[${timestamp}] ${message}`;
+            logDiv.appendChild(line);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+        }
+
+        async function testServer() {
+            log('Testing server connection...', 'info');
+            try {
+                const response = await fetch('http://127.0.0.1:8000/', {
+                    method: 'GET'
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✓ Server is running: ${data.message}`, 'success');
+                    document.getElementById('serverStatus').className = 'status success';
+                    document.getElementById('serverStatus').textContent = '✓ Server is ONLINE and responding';
+                } else {
+                    log(`✗ Server returned status ${response.status}`, 'error');
+                }
+            } catch (error) {
+                log(`✗ Cannot connect to server: ${error.message}`, 'error');
+                document.getElementById('serverStatus').className = 'status error';
+                document.getElementById('serverStatus').textContent = '✗ Server is OFFLINE or unreachable';
+            }
+        }
+
+        async function testChat() {
+            log('Testing chat endpoint...', 'info');
+            try {
+                const response = await fetch('http://127.0.0.1:8000/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        session_id: 'debug_test',
+                        query: 'Hello, this is a test'
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.response) {
+                        log(`✓ Chat working! Response: "${data.response.substring(0, 100)}..."`, 'success');
+                    } else {
+                        log(`✗ No response in data`, 'error');
+                    }
+                } else {
+                    const text = await response.text();
+                    log(`✗ Chat endpoint error ${response.status}: ${text}`, 'error');
+                }
+            } catch (error) {
+                log(`✗ Chat test failed: ${error.message}`, 'error');
+            }
+        }
+
+        function openChatbot() {
+            log('Opening chatbot UI...', 'info');
+            window.location.href = 'index.html';
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            setTimeout(testServer, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Support Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Sidebar for Chat History -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>💬 Chats</h2>
+            <button class="new-chat-btn" onclick="startNewChat()">+ New Chat</button>
+        </div>
+        <div id="chatHistory" class="chat-history"></div>
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="main-content">
+        <!-- Chat Widget Button -->
+        <button id="toggleChatBtn" onclick="toggleChat()" class="toggle-btn">💬 Chat with Us</button>
+
+        <!-- Chat Container -->
+        <div id="chatContainer" class="chat-container">
+            <div id="chatHeader" class="chat-header">
+                <span id="chatTitle">Mental Health Support</span>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button id="logoutBtn" onclick="logout()" style="background: #d32f2f; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold;">Logout</button>
+                    <button id="closeBtn" onclick="toggleChat()" class="close-btn">&times;</button>
+                </div>
+            </div>
+            <div id="chatBox" class="chat-box"></div>
+            <div class="chat-footer">
+                <input
+                    id="chatInput"
+                    type="text"
+                    placeholder="Type your message..."
+                    onkeydown="if(event.key === 'Enter') sendMessage()"
+                />
+                <button onclick="sendMessage()">➤ Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
