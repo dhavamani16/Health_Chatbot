@@ -4,7 +4,7 @@
 The <b>Mental Health Chatbot</b> is an AI-powered system that provides supportive responses and guidance related to mental health queries. Users can ask questions or describe their feelings, and the chatbot responds using information from a curated dataset and OpenAI GPT models.
 </p>
 
-<img width="980" height="500" alt="image" src="https://github.com/user-attachments/assets/9028cbfe-91d3-4166-9f44-6349f9706cf6" />
+
 
 
 <p style="font-family: 'Verdana', sans-serif; font-size:16px;">
@@ -63,6 +63,11 @@ Use the Swagger UI to interact with the chatbot endpoints.</li>
 <li>Real-time responses</li>
 <li>Easy integration for frontend applications</li>
 </ul>
+<p style="font-family: 'Verdana', sans-serif; font-size:16px;">
+The <b>Mental Health Chatbot</b> is an AI-powered system that provides supportive responses and guidance for mental health queries. Users can interact with it via a web interface or API, receiving contextual and empathetic responses powered by OpenAI GPT models.
+</p> 
+
+<img width="980" height="500" alt="image" src="https://github.com/user-attachments/assets/9028cbfe-91d3-4166-9f44-6349f9706cf6" />
 
 <h2 style="font-family: 'Arial Black', sans-serif; color:#1F618D;"> License & Terms</h2>
 <p style="font-family: 'Verdana', sans-serif; font-size:16px;">
