@@ -4,7 +4,8 @@
 The <b>Mental Health Chatbot</b> is an AI-powered system that provides supportive responses and guidance related to mental health queries. Users can ask questions or describe their feelings, and the chatbot responds using information from a curated dataset and OpenAI GPT models.
 </p>
 
-<img width="9000" height="500" alt="Chatbot Screenshot" src="https://github.com/user-attachments/assets/mental_health_screenshot.png" />
+<img width="1280" height="719" alt="image" src="https://github.com/user-attachments/assets/9028cbfe-91d3-4166-9f44-6349f9706cf6" />
+
 
 <p style="font-family: 'Verdana', sans-serif; font-size:16px;">
 Imagine a user seeking mental health guidance. They can interact with the chatbot through a web interface or API. The system will:
